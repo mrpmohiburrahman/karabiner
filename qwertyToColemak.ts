@@ -1,4 +1,4 @@
-const qwertyToColemak = {
+export const qwertyToColemak = {
   a: `a`,
   b: `b`,
   c: `c`,
