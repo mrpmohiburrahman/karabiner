@@ -1,5 +1,5 @@
 import { To, KeyCode, Manipulator, KarabinerRules } from "./types";
-
+import { qwertyToColemak } from "./qwertyToColemak";
 /**
  * Custom way to describe a command in a layer
  */
@@ -31,7 +31,7 @@ export function createHyperSubLayer(
       description: `Toggle Hyper sublayer ${sublayer_key}`,
       type: "basic",
       from: {
-        key_code: sublayer_key,
+        key_code: qwertyToColemak[sublayer_key],
         modifiers: {
           mandatory: [
             "left_command",
