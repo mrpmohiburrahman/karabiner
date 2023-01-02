@@ -76,7 +76,7 @@ export function createHyperSubLayer(
         ...commands[command_key],
         type: "basic" as const,
         from: {
-          key_code: command_key,
+          key_code: qwertyToColemak[command_key],
           modifiers: {
             // Mandatory modifiers are *not* added to the "to" event
             mandatory: ["any"],
@@ -106,39 +106,56 @@ export function createHyperSubLayers(subLayers: {
   const allSubLayerVariables = (
     Object.keys(subLayers) as (keyof typeof subLayers)[]
   ).map((sublayer_key) => generateSubLayerVariableName(sublayer_key));
+  // console.log(
+  //   `[Object.entries(subLayers)] === ${JSON.stringify(
+  //     Object.entries(subLayers)
+  //   )}`
+  // );
+  console.log(`[subLayers] === ${JSON.stringify(subLayers)}`);
+  return Object.entries(subLayers).map(([key, value], index) => {
+    // const allKeysForThisLayer = Object.keys(value);
+    // let isAllowed = false;
 
-  return Object.entries(subLayers).map(([key, value]) =>
-    "to" in value
-      ? {
-          description: `Hyper Key + ${key}`,
-          manipulators: [
-            {
-              ...value,
-              type: "basic" as const,
-              from: {
-                key_code: key as KeyCode,
-                modifiers: {
-                  // Mandatory modifiers are *not* added to the "to" event
-                  mandatory: [
-                    "left_command",
-                    "left_control",
-                    "left_shift",
-                    "left_option",
-                  ],
-                },
+    // for (const item of allKeysForThisLayer) {
+    //   if (`to` in value[item]) {
+    //     console.log(`to` in value[item]);
+    //     if (!isAllowed) isAllowed = true;
+    //   }
+    // }
+
+    if ("to" in value) {
+      console.log(`to in value`);
+      return {
+        description: `Hyper Key + ${qwertyToColemak[key]}`,
+        manipulators: [
+          {
+            ...value,
+            type: "basic" as const,
+            from: {
+              key_code: qwertyToColemak[key] as KeyCode,
+              modifiers: {
+                // Mandatory modifiers are *not* added to the "to" event
+                mandatory: [
+                  "left_command",
+                  "left_control",
+                  "left_shift",
+                  "left_option",
+                ],
               },
             },
-          ],
-        }
-      : {
-          description: `Hyper Key sublayer "${key}"`,
-          manipulators: createHyperSubLayer(
-            key as KeyCode,
-            value,
-            allSubLayerVariables
-          ),
-        }
-  );
+          },
+        ],
+      };
+    } else
+      return {
+        description: `Hyper Key sublayer "${key}"`,
+        manipulators: createHyperSubLayer(
+          key as KeyCode,
+          value,
+          allSubLayerVariables
+        ),
+      };
+  });
 }
 
 function generateSubLayerVariableName(key: KeyCode) {
