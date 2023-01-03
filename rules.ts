@@ -1,4 +1,5 @@
 import fs from "fs";
+import { devices } from "./externalKeyboardRules";
 import { KarabinerRules } from "./types";
 import { createHyperSubLayers, app, open } from "./utils";
 
@@ -339,6 +340,7 @@ fs.writeFileSync(
           complex_modifications: {
             rules,
           },
+          devices, // for external keyboard: fn_function_keys and simple_modifications
         },
       ],
     },
