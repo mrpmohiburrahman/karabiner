@@ -1,7 +1,8 @@
 import fs from "fs";
+import { fn_function_keys } from "./defaultfunctionKeys";
 import { devices } from "./externalKeyboardRules";
 import { KarabinerRules } from "./types";
-import { createHyperSubLayers, app, open } from "./utils";
+import { app, createHyperSubLayers, open } from "./utils";
 
 const rules: KarabinerRules[] = [
   // Define the Hyper key itself
@@ -327,20 +328,34 @@ const rules: KarabinerRules[] = [
   }),
 ];
 
+const parameters = { delay_milliseconds_before_open_device: 1000 };
+const selected = true;
+const virtual_hid_keyboard = {
+  country_code: 0,
+  indicate_sticky_modifier_keys_state: true,
+  mouse_key_xy_scale: 100,
+};
+
+const global = {
+  check_for_updates_on_startup: true,
+  show_in_menu_bar: true,
+  show_profile_name_in_menu_bar: false,
+};
+
 fs.writeFileSync(
   "karabiner.json",
   JSON.stringify(
     {
-      global: {
-        show_in_menu_bar: false,
-      },
+      global,
       profiles: [
         {
           name: "mrpConfig",
-          complex_modifications: {
-            rules,
-          },
+          complex_modifications: { rules }, // all generated rules
           devices, // for external keyboard: fn_function_keys and simple_modifications
+          fn_function_keys,
+          parameters,
+          selected,
+          virtual_hid_keyboard,
         },
       ],
     },
