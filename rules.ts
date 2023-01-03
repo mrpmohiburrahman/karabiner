@@ -83,7 +83,6 @@ const rules: KarabinerRules[] = [
       i: app("Messages"),
       p: app("Spotify"),
     },
-    //
     // // w = "Window" via rectangle.app
     // w: {
     //   semicolon: {
@@ -153,8 +152,8 @@ const rules: KarabinerRules[] = [
     //     description: "Window: Full Screen",
     //     to: [
     //       {
-    //         key_code: "f",
-    //         modifiers: ["right_option", "right_command"],
+    //         shell_command:
+    //           "/opt/homebrew/bin/yabai -m window --toggle zoom-fullscreen",
     //       },
     //     ],
     //   },
