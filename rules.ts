@@ -52,20 +52,12 @@ const rules: KarabinerRules[] = [
       v: app("Visual Studio Code"),
       d: app("Discord"),
       s: app("Slack"),
-      e: app("Superhuman"),
       n: app("Notion"),
-      t: app("Terminal"),
+      t: app("iTerm"),
       // Open todo list managed via *H*ypersonic
-      h: open(
-        "notion://www.notion.so/graphcdn/7b33b924746647499d906c55f89d5026?v=7f9a78e5477d40088f54bdbaf212f304"
-      ),
       z: app("zoom.us"),
-      m: app("Muse"),
-      f: app("Figma"),
-      r: app("Telegram"),
-      // "i"Message
-      i: app("Messages"),
-      p: app("Spotify"),
+      f: app("Firefox"),
+      r: app("Telegram Desktop"),
     },
     // // w = "Window" via rectangle.app
     // w: {
@@ -190,82 +182,41 @@ const rules: KarabinerRules[] = [
     // },
 
     // // s = "System"
-    // s: {
-    //   u: {
-    //     to: [
-    //       {
-    //         key_code: "volume_increment",
-    //       },
-    //     ],
-    //   },
-    //   j: {
-    //     to: [
-    //       {
-    //         key_code: "volume_decrement",
-    //       },
-    //     ],
-    //   },
-    //   i: {
-    //     to: [
-    //       {
-    //         key_code: "display_brightness_increment",
-    //       },
-    //     ],
-    //   },
-    //   k: {
-    //     to: [
-    //       {
-    //         key_code: "display_brightness_decrement",
-    //       },
-    //     ],
-    //   },
-    //   l: {
-    //     to: [
-    //       {
-    //         key_code: "q",
-    //         modifiers: ["right_control", "right_command"],
-    //       },
-    //     ],
-    //   },
-    //   p: {
-    //     to: [
-    //       {
-    //         key_code: "play_or_pause",
-    //       },
-    //     ],
-    //   },
-    //   semicolon: {
-    //     to: [
-    //       {
-    //         key_code: "fastforward",
-    //       },
-    //     ],
-    //   },
-    //   e: {
-    //     to: [
-    //       {
-    //         // Emoji picker
-    //         key_code: "spacebar",
-    //         modifiers: ["right_control", "right_command"],
-    //       },
-    //     ],
-    //   },
-    //   // Turn on Elgato KeyLight
-    //   y: {
-    //     to: [
-    //       {
-    //         shell_command: `curl -H 'Content-Type: application/json' --request PUT --data '{ "numberOfLights": 1, "lights": [ { "on": 1, "brightness": 100, "temperature": 215 } ] }' http://192.168.8.84:9123/elgato/lights`,
-    //       },
-    //     ],
-    //   },
-    //   h: {
-    //     to: [
-    //       {
-    //         shell_command: `curl -H 'Content-Type: application/json' --request PUT --data '{ "numberOfLights": 1, "lights": [ { "on": 0, "brightness": 100, "temperature": 215 } ] }' http://192.168.8.84:9123/elgato/lights`,
-    //       },
-    //     ],
-    //   },
-    // },
+    s: {
+      u: { to: [{ key_code: "volume_increment" }] },
+      j: { to: [{ key_code: "volume_decrement" }] },
+      i: { to: [{ key_code: "display_brightness_increment" }] },
+      k: { to: [{ key_code: "display_brightness_decrement" }] },
+      l: {
+        to: [{ key_code: "q", modifiers: ["right_control", "right_command"] }],
+      },
+      // p: { to: [{ key_code: "play_or_pause" }] },
+      // semicolon: { to: [{ key_code: "fastforward" }] },
+      e: {
+        to: [
+          {
+            // Emoji picker
+            key_code: "spacebar",
+            modifiers: ["right_control", "right_command"],
+          },
+        ],
+      },
+      // Turn on Elgato KeyLight
+      // y: {
+      //   to: [
+      //     {
+      //       shell_command: `curl -H 'Content-Type: application/json' --request PUT --data '{ "numberOfLights": 1, "lights": [ { "on": 1, "brightness": 100, "temperature": 215 } ] }' http://192.168.8.84:9123/elgato/lights`,
+      //     },
+      //   ],
+      // },
+      // h: {
+      //   to: [
+      //     {
+      //       shell_command: `curl -H 'Content-Type: application/json' --request PUT --data '{ "numberOfLights": 1, "lights": [ { "on": 0, "brightness": 100, "temperature": 215 } ] }' http://192.168.8.84:9123/elgato/lights`,
+      //     },
+      //   ],
+      // },
+    },
 
     // // v = "moVe" which isn't "m" because we want it to be on the left hand
     // // so that hjkl work like they do in vim
