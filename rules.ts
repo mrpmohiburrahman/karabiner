@@ -11,20 +11,14 @@ const rules: KarabinerRules[] = [
     manipulators: [
       {
         description: "Caps Lock -> Hyper Key",
-        from: {
-          key_code: "caps_lock",
-        },
+        from: { key_code: "caps_lock" },
         to: [
           {
             key_code: "left_shift",
             modifiers: ["left_command", "left_control", "left_option"],
           },
         ],
-        to_if_alone: [
-          {
-            key_code: "escape",
-          },
-        ],
+        to_if_alone: [{ key_code: "escape" }],
         type: "basic",
       },
       {
@@ -32,33 +26,21 @@ const rules: KarabinerRules[] = [
         description: "Disable CMD + Tab to force Hyper Key usage",
         from: {
           key_code: "tab",
-          modifiers: {
-            mandatory: ["left_command"],
-          },
+          modifiers: { mandatory: ["left_command"] },
         },
-        to: [
-          {
-            key_code: "tab",
-          },
-        ],
+        to: [{ key_code: "tab" }],
       },
       {
         type: "basic",
         description: "Slash -> Hyper Key",
-        from: {
-          key_code: "slash",
-        },
+        from: { key_code: "slash" },
         to: [
           {
             key_code: "left_shift",
             modifiers: ["left_command", "left_control", "left_option"],
           },
         ],
-        to_if_alone: [
-          {
-            key_code: "slash",
-          },
-        ],
+        to_if_alone: [{ key_code: "slash" }],
       },
     ],
   },
