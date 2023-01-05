@@ -60,126 +60,136 @@ const rules: KarabinerRules[] = [
       r: app("Telegram Desktop"),
     },
     // // w = "Window" via rectangle.app
-    // w: {
-    //   semicolon: {
-    //     description: "Window: Hide",
-    //     to: [
-    //       {
-    //         key_code: "h",
-    //         modifiers: ["right_command"],
-    //       },
-    //     ],
-    //   },
-    //   h: {
-    //     description: "Window: First Third",
-    //     to: [
-    //       {
-    //         key_code: "left_arrow",
-    //         modifiers: ["right_option", "right_control"],
-    //       },
-    //     ],
-    //   },
-    //   k: {
-    //     description: "Window: Top Half",
-    //     to: [
-    //       {
-    //         key_code: "up_arrow",
-    //         modifiers: ["right_option", "right_command"],
-    //       },
-    //     ],
-    //   },
-    //   j: {
-    //     description: "Window: Bottom Half",
-    //     to: [
-    //       {
-    //         key_code: "down_arrow",
-    //         modifiers: ["right_option", "right_command"],
-    //       },
-    //     ],
-    //   },
-    //   l: {
-    //     description: "Window: Last Third",
-    //     to: [
-    //       {
-    //         key_code: "right_arrow",
-    //         modifiers: ["right_option", "right_control"],
-    //       },
-    //     ],
-    //   },
-    //   y: {
-    //     description: "Window: Left Half",
-    //     to: [
-    //       {
-    //         key_code: "left_arrow",
-    //         modifiers: ["right_option", "right_command"],
-    //       },
-    //     ],
-    //   },
-    //   o: {
-    //     description: "Window: Right Half",
-    //     to: [
-    //       {
-    //         key_code: "right_arrow",
-    //         modifiers: ["right_option", "right_command"],
-    //       },
-    //     ],
-    //   },
-    //   f: {
-    //     description: "Window: Full Screen",
-    //     to: [
-    //       {
-    //         shell_command:
-    //           "/opt/homebrew/bin/yabai -m window --toggle zoom-fullscreen",
-    //       },
-    //     ],
-    //   },
-    //   u: {
-    //     description: "Window: Previous Tab",
-    //     to: [
-    //       {
-    //         key_code: "tab",
-    //         modifiers: ["right_control", "right_shift"],
-    //       },
-    //     ],
-    //   },
-    //   i: {
-    //     description: "Window: Next Tab",
-    //     to: [
-    //       {
-    //         key_code: "tab",
-    //         modifiers: ["right_control"],
-    //       },
-    //     ],
-    //   },
-    //   n: {
-    //     description: "Window: Next Window",
-    //     to: [
-    //       {
-    //         key_code: "grave_accent_and_tilde",
-    //         modifiers: ["right_command"],
-    //       },
-    //     ],
-    //   },
-    //   b: {
-    //     description: "Window: Back",
-    //     to: [
-    //       {
-    //         key_code: "open_bracket",
-    //         modifiers: ["right_command"],
-    //       },
-    //     ],
-    //   },
-    //   // Note: No literal connection. Both f and n are already taken.
-    //   m: {
-    //     description: "Window: Forward",
-    //     to: [
-    //       {
-    //         key_code: "close_bracket",
-    //         modifiers: ["right_command"],
-    //       },
-    //     ],
-    //   },
-    // },
+    w: {
+      // semicolon: {
+      //   description: "Window: Hide",
+      //   to: [
+      //     {
+      //       key_code: "h",
+      //       modifiers: ["right_command"],
+      //     },
+      //   ],
+      // },
+      // h: {
+      //   description: "Window: First Third",
+      //   to: [
+      //     {
+      //       key_code: "left_arrow",
+      //       modifiers: ["right_option", "right_control"],
+      //     },
+      //   ],
+      // },
+      // k: {
+      //   description: "Window: Top Half",
+      //   to: [
+      //     {
+      //       key_code: "up_arrow",
+      //       modifiers: ["right_option", "right_command"],
+      //     },
+      //   ],
+      // },
+      // j: {
+      //   description: "Window: Bottom Half",
+      //   to: [
+      //     {
+      //       key_code: "down_arrow",
+      //       modifiers: ["right_option", "right_command"],
+      //     },
+      //   ],
+      // },
+      // l: {
+      //   description: "Window: Last Third",
+      //   to: [
+      //     {
+      //       key_code: "right_arrow",
+      //       modifiers: ["right_option", "right_control"],
+      //     },
+      //   ],
+      // },
+      // y: {
+      //   description: "Window: Left Half",
+      //   to: [
+      //     {
+      //       key_code: "left_arrow",
+      //       modifiers: ["right_option", "right_command"],
+      //     },
+      //   ],
+      // },
+      // o: {
+      //   description: "Window: Right Half",
+      //   to: [
+      //     {
+      //       key_code: "right_arrow",
+      //       modifiers: ["right_option", "right_command"],
+      //     },
+      //   ],
+      // },
+
+      t: {
+        description: "hyper+t ==> float / unfloat window and center on screen",
+        to: [
+          {
+            shell_command:
+              "/opt/homebrew/bin/yabai -m window --toggle float; /opt/homebrew/bin/yabai -m window --grid 4:4:1:1:2:2",
+          },
+        ],
+      },
+      f: {
+        description: "Window: Full Screen",
+        to: [
+          {
+            shell_command:
+              "/opt/homebrew/bin/yabai -m window --toggle zoom-fullscreen",
+          },
+        ],
+      },
+      // u: {
+      //   description: "Window: Previous Tab",
+      //   to: [
+      //     {
+      //       key_code: "tab",
+      //       modifiers: ["right_control", "right_shift"],
+      //     },
+      //   ],
+      // },
+      // i: {
+      //   description: "Window: Next Tab",
+      //   to: [
+      //     {
+      //       key_code: "tab",
+      //       modifiers: ["right_control"],
+      //     },
+      //   ],
+      // },
+      // n: {
+      //   description: "Window: Next Window",
+      //   to: [
+      //     {
+      //       key_code: "grave_accent_and_tilde",
+      //       modifiers: ["right_command"],
+      //     },
+      //   ],
+      // },
+      // b: {
+      //   description: "Window: Back",
+      //   to: [
+      //     {
+      //       key_code: "open_bracket",
+      //       modifiers: ["right_command"],
+      //     },
+      //   ],
+      // },
+      // // Note: No literal connection. Both f and n are already taken.
+      // m: {
+      //   description: "Window: Forward",
+      //   to: [
+      //     {
+      //       key_code: "close_bracket",
+      //       modifiers: ["right_command"],
+      //     },
+      //   ],
+      // },
+    },
 
     // // s = "System"
     s: {
