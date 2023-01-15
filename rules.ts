@@ -59,7 +59,7 @@ const rules: KarabinerRules[] = [
       f: app("Firefox"),
       r: app("Telegram Desktop"),
     },
-    // // w = "Window" via rectangle.app
+    // w = "Window" via rectangle.app
     w: {
       // semicolon: {
       //   description: "Window: Hide",
@@ -192,25 +192,35 @@ const rules: KarabinerRules[] = [
     },
 
     // // s = "System"
+
     s: {
       u: { to: [{ key_code: "volume_increment" }] },
       j: { to: [{ key_code: "volume_decrement" }] },
       i: { to: [{ key_code: "display_brightness_increment" }] },
       k: { to: [{ key_code: "display_brightness_decrement" }] },
+      b: {
+        description: `change language to bn`,
+        to: [{ key_code: "spacebar", modifiers: ["control"] }],
+      },
+      e: {
+        description: `change language to en`,
+        to: [{ key_code: "right_command", modifiers: ["control"] }],
+      },
+
       l: {
         to: [{ key_code: "q", modifiers: ["right_control", "right_command"] }],
       },
       // p: { to: [{ key_code: "play_or_pause" }] },
       // semicolon: { to: [{ key_code: "fastforward" }] },
-      e: {
-        to: [
-          {
-            // Emoji picker
-            key_code: "spacebar",
-            modifiers: ["right_control", "right_command"],
-          },
-        ],
-      },
+      // e: {
+      //   to: [
+      //     {
+      //       // Emoji picker
+      //       key_code: "spacebar",
+      //       modifiers: ["right_control", "right_command"],
+      //     },
+      //   ],
+      // },
       // Turn on Elgato KeyLight
       // y: {
       //   to: [
@@ -294,7 +304,7 @@ fs.writeFileSync(
         {
           name: "mrpConfig",
           complex_modifications: { rules }, // all generated rules
-          devices, // for external keyboard: fn_function_keys and simple_modifications
+          devices, // for external keyboard: fn_function_keys and simple_modifications ( command and options buttons )
           fn_function_keys,
           parameters,
           selected,
