@@ -196,6 +196,38 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
+      n: {
+        description: "go to workspack 1",
+        to: [
+          {
+            shell_command: `DISPLAY="$(/opt/homebrew/bin/yabai -m query --displays --display | /opt/homebrew/bin/jq '.index')"; /opt/homebrew/bin/yabai -m space --focus $((1+4*($DISPLAY - 1)))`,
+          },
+        ],
+      },
+      e: {
+        description: "go to workspack 2",
+        to: [
+          {
+            shell_command: `DISPLAY="$(/opt/homebrew/bin/yabai -m query --displays --display | /opt/homebrew/bin/jq '.index')"; /opt/homebrew/bin/yabai -m space --focus $((2+4*($DISPLAY - 1)))`,
+          },
+        ],
+      },
+      i: {
+        description: "go to workspack 3",
+        to: [
+          {
+            shell_command: `DISPLAY="$(/opt/homebrew/bin/yabai -m query --displays --display | /opt/homebrew/bin/jq '.index')"; /opt/homebrew/bin/yabai -m space --focus $((3+4*($DISPLAY - 1)))`,
+          },
+        ],
+      },
+      o: {
+        description: "go to workspack 4",
+        to: [
+          {
+            shell_command: `DISPLAY="$(/opt/homebrew/bin/yabai -m query --displays --display | /opt/homebrew/bin/jq '.index')"; /opt/homebrew/bin/yabai -m space --focus $((4+4*($DISPLAY - 1)))`,
+          },
+        ],
+      },
       // h: {
       //   description: "Window: First Third",
       //   to: [
@@ -345,8 +377,8 @@ const rules: KarabinerRules[] = [
       // },
     },
 
-    // // v = "moVe" which isn't "m" because we want it to be on the left hand
-    // // so that hjkl work like they do in vim
+    // v = "moVe" which isn't "m" because we want it to be on the left hand
+    // so that hjkl work like they do in vim
     // v: {
     //   h: {
     //     to: [{ key_code: "left_arrow" }],

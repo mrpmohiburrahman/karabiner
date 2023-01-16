@@ -618,6 +618,102 @@
                     "value": 1
                   }
                 ]
+              },
+              {
+                "description": "go to workspack 1",
+                "to": [
+                  {
+                    "shell_command": "DISPLAY=\"$(/opt/homebrew/bin/yabai -m query --displays --display | /opt/homebrew/bin/jq '.index')\"; /opt/homebrew/bin/yabai -m space --focus $((1+4*($DISPLAY - 1)))"
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_w",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "go to workspack 2",
+                "to": [
+                  {
+                    "shell_command": "DISPLAY=\"$(/opt/homebrew/bin/yabai -m query --displays --display | /opt/homebrew/bin/jq '.index')\"; /opt/homebrew/bin/yabai -m space --focus $((2+4*($DISPLAY - 1)))"
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_w",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "go to workspack 3",
+                "to": [
+                  {
+                    "shell_command": "DISPLAY=\"$(/opt/homebrew/bin/yabai -m query --displays --display | /opt/homebrew/bin/jq '.index')\"; /opt/homebrew/bin/yabai -m space --focus $((3+4*($DISPLAY - 1)))"
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_w",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "go to workspack 4",
+                "to": [
+                  {
+                    "shell_command": "DISPLAY=\"$(/opt/homebrew/bin/yabai -m query --displays --display | /opt/homebrew/bin/jq '.index')\"; /opt/homebrew/bin/yabai -m space --focus $((4+4*($DISPLAY - 1)))"
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "semicolon",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_w",
+                    "value": 1
+                  }
+                ]
               }
             ]
           },
