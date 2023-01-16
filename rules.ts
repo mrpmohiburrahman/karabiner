@@ -21,15 +21,15 @@ const rules: KarabinerRules[] = [
         to_if_alone: [{ key_code: "escape" }],
         type: "basic",
       },
-      {
-        type: "basic",
-        description: "Disable CMD + Tab to force Hyper Key usage",
-        from: {
-          key_code: "tab",
-          modifiers: { mandatory: ["left_command"] },
-        },
-        to: [{ key_code: "tab" }],
-      },
+      // {
+      //   type: "basic",
+      //   description: "Disable CMD + Tab to force Hyper Key usage",
+      //   from: {
+      //     key_code: "tab",
+      //     modifiers: { mandatory: ["left_command"] },
+      //   },
+      //   to: [{ key_code: "tab" }],
+      // },
       {
         type: "basic",
         description: "Slash -> Hyper Key",
@@ -153,15 +153,49 @@ const rules: KarabinerRules[] = [
     },
     // w = "Window" via rectangle.app
     w: {
-      // semicolon: {
-      //   description: "Window: Hide",
-      //   to: [
-      //     {
-      //       key_code: "h",
-      //       modifiers: ["right_command"],
-      //     },
-      //   ],
-      // },
+      t: {
+        description: "hyper+t ==> float / unfloat window and center on screen",
+        to: [
+          {
+            shell_command:
+              "/opt/homebrew/bin/yabai -m window --toggle float; /opt/homebrew/bin/yabai -m window --grid 4:4:1:1:2:2",
+          },
+        ],
+      },
+      f: {
+        description: "Window: Full Screen",
+        to: [
+          {
+            shell_command:
+              "/opt/homebrew/bin/yabai -m window --toggle zoom-fullscreen",
+          },
+        ],
+      },
+      y: {
+        description: "hyper+y ==> swap window west",
+        to: [
+          {
+            shell_command: "/opt/homebrew/bin/yabai -m window --swap west",
+          },
+        ],
+      },
+      h: {
+        description: "hyper+h ==> send window to monitor and follow focus",
+        to: [
+          {
+            shell_command:
+              "/bin/dash /Users/mrp/dotfilesOSX/yabai/moveWindowLeftAndFollowFocus.sh",
+          },
+        ],
+      },
+      semicolon: {
+        description: "hyper+; ==> swap window east",
+        to: [
+          {
+            shell_command: "/opt/homebrew/bin/yabai -m window --swap east",
+          },
+        ],
+      },
       // h: {
       //   description: "Window: First Third",
       //   to: [
@@ -216,25 +250,6 @@ const rules: KarabinerRules[] = [
       //     },
       //   ],
       // },
-
-      t: {
-        description: "hyper+t ==> float / unfloat window and center on screen",
-        to: [
-          {
-            shell_command:
-              "/opt/homebrew/bin/yabai -m window --toggle float; /opt/homebrew/bin/yabai -m window --grid 4:4:1:1:2:2",
-          },
-        ],
-      },
-      f: {
-        description: "Window: Full Screen",
-        to: [
-          {
-            shell_command:
-              "/opt/homebrew/bin/yabai -m window --toggle zoom-fullscreen",
-          },
-        ],
-      },
       // u: {
       //   description: "Window: Previous Tab",
       //   to: [
@@ -286,10 +301,10 @@ const rules: KarabinerRules[] = [
     // // s = "System"
 
     s: {
-      u: { to: [{ key_code: "volume_increment" }] },
-      j: { to: [{ key_code: "volume_decrement" }] },
-      i: { to: [{ key_code: "display_brightness_increment" }] },
-      k: { to: [{ key_code: "display_brightness_decrement" }] },
+      l: { to: [{ key_code: "volume_increment" }] },
+      n: { to: [{ key_code: "volume_decrement" }] },
+      // i: { to: [{ key_code: "display_brightness_increment" }] },
+      // k: { to: [{ key_code: "display_brightness_decrement" }] },
       b: {
         description: `change language to bn`,
         to: [{ key_code: "spacebar", modifiers: ["control"] }],
@@ -299,9 +314,9 @@ const rules: KarabinerRules[] = [
         to: [{ key_code: "right_command", modifiers: ["control"] }],
       },
 
-      l: {
-        to: [{ key_code: "q", modifiers: ["right_control", "right_command"] }],
-      },
+      // l: {
+      //   to: [{ key_code: "q", modifiers: ["right_control", "right_command"] }],
+      // },
       // p: { to: [{ key_code: "play_or_pause" }] },
       // semicolon: { to: [{ key_code: "fastforward" }] },
       // e: {
