@@ -136,6 +136,51 @@ const rules: KarabinerRules[] = [
       },
     ],
   },
+  {
+    description: "Left CMD -> bn",
+    manipulators: [
+      {
+        from: {
+          key_code: "left_command",
+          modifiers: {
+            mandatory: ["right_command"],
+            optional: ["any"],
+          },
+        },
+        to: [
+          {
+            key_code: "spacebar",
+            modifiers: ["control"],
+          },
+        ],
+        type: "basic",
+      },
+    ],
+  },
+  {
+    description: "Right CMD -> en",
+    manipulators: [
+      {
+        from: {
+          key_code: "right_command",
+        },
+        to: [
+          {
+            key_code: "right_command",
+          },
+        ],
+        to_if_alone: [
+          {
+            select_input_source: {
+              input_source_id: "com.apple.keylayout.Colemak",
+              language: "en",
+            },
+          },
+        ],
+        type: "basic",
+      },
+    ],
+  },
   ...createHyperSubLayers({
     // o = "Open" applications
     o: {
@@ -337,14 +382,14 @@ const rules: KarabinerRules[] = [
       n: { to: [{ key_code: "volume_decrement" }] },
       // i: { to: [{ key_code: "display_brightness_increment" }] },
       // k: { to: [{ key_code: "display_brightness_decrement" }] },
-      b: {
-        description: `change language to bn`,
-        to: [{ key_code: "spacebar", modifiers: ["control"] }],
-      },
-      e: {
-        description: `change language to en`,
-        to: [{ key_code: "right_command", modifiers: ["control"] }],
-      },
+      // b: {
+      //   description: `change language to bn`,
+      //   to: [{ key_code: "spacebar", modifiers: ["control"] }],
+      // },
+      // e: {
+      //   description: `change language to en`,
+      //   to: [{ key_code: "right_command", modifiers: ["control"] }],
+      // },
 
       // l: {
       //   to: [{ key_code: "q", modifiers: ["right_control", "right_command"] }],
