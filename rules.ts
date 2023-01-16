@@ -44,6 +44,98 @@ const rules: KarabinerRules[] = [
       },
     ],
   },
+  {
+    description: "vlc-increment",
+    manipulators: [
+      {
+        conditions: [
+          {
+            bundle_identifiers: ["org.videolan.vlc"],
+            file_paths: ["/Applications/VLC.app/Contents/MacOS/VLC"],
+            type: "frontmost_application_if",
+          },
+        ],
+        from: {
+          key_code: "grave_accent_and_tilde",
+        },
+        to: [
+          {
+            key_code: "keypad_plus",
+          },
+        ],
+        type: "basic",
+      },
+    ],
+  },
+  {
+    description: "vlc-decrement",
+    manipulators: [
+      {
+        conditions: [
+          {
+            bundle_identifiers: ["org.videolan.vlc"],
+            file_paths: ["/Applications/VLC.app/Contents/MacOS/VLC"],
+            type: "frontmost_application_if",
+          },
+        ],
+        from: {
+          key_code: "tab",
+        },
+        to: [
+          {
+            key_code: "keypad_hyphen",
+          },
+        ],
+        type: "basic",
+      },
+    ],
+  },
+  {
+    description: "firefox-video-speed-increment",
+    manipulators: [
+      {
+        conditions: [
+          {
+            bundle_identifiers: ["org.mozilla.firefox"],
+            file_paths: ["/Applications/Firefox.app/Contents/MacOS/firefox"],
+            type: "frontmost_application_if",
+          },
+        ],
+        from: {
+          key_code: "keypad_plus",
+        },
+        to: [
+          {
+            key_code: "equal_sign",
+          },
+        ],
+        type: "basic",
+      },
+    ],
+  },
+  {
+    description: "firefox-video-speed-decrement",
+    manipulators: [
+      {
+        conditions: [
+          {
+            bundle_identifiers: ["org.mozilla.firefox"],
+            file_paths: ["/Applications/Firefox.app/Contents/MacOS/firefox"],
+            type: "frontmost_application_if",
+          },
+        ],
+        from: {
+          key_code: "keypad_hyphen",
+        },
+        to: [
+          {
+            key_code: "hyphen",
+          },
+        ],
+        type: "basic",
+      },
+    ],
+  },
   ...createHyperSubLayers({
     // o = "Open" applications
     o: {
