@@ -340,6 +340,32 @@ const rules: KarabinerRules[] = [
       }
     ]
   },
+  {
+    "description": "Use Delete as Move to Trash",
+    "manipulators": [
+      {
+        "type": "basic",
+        "from": {
+          "key_code": "delete_forward",
+          "modifiers": {
+            "optional": ["any"]
+          }
+        },
+        "to": [
+          {
+            "key_code": "delete_or_backspace",
+            "modifiers": ["left_command"]
+          }
+        ],
+        "conditions": [
+          {
+            "type": "frontmost_application_if",
+            "bundle_identifiers": ["^com.apple.finder"]
+          }
+        ]
+      }
+    ]
+  },
   ...createHyperSubLayers({
     // o = "Open" applications
     o: {
