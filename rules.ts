@@ -366,6 +366,318 @@ const rules: KarabinerRules[] = [
       }
     ]
   },
+  {
+    "description": "Enable Num Lock Toggle",
+    "manipulators": [
+      {
+        "conditions": [
+          {
+            "name": "Num Lock",
+            "type": "variable_if",
+            "value": 0
+          }
+        ],
+        "description": "Set Numlock",
+        "from": {
+          "key_code": "keypad_num_lock",
+          "modifiers": {
+            "optional": ["any"]
+          }
+        },
+        "to": [
+          {
+            "set_variable": {
+              "name": "Num Lock",
+              "value": 1
+            }
+          }
+        ],
+        "type": "basic"
+      },
+      {
+        "conditions": [
+          {
+            "name": "Num Lock",
+            "type": "variable_unless",
+            "value": 0
+          }
+        ],
+        "description": "Unset Numlock",
+        "from": {
+          "key_code": "keypad_num_lock",
+          "modifiers": {
+            "optional": ["any"]
+          }
+        },
+        "to": [
+          {
+            "set_variable": {
+              "name": "Num Lock",
+              "value": 0
+            }
+          }
+        ],
+        "type": "basic"
+      }
+    ]
+  },
+  {
+    "description": "Numpad Keys",
+    "manipulators": [
+      {
+        "conditions": [
+          {
+            "name": "Num Lock",
+            "type": "variable_unless",
+            "value": 1
+          }
+        ],
+        "from": {
+          "key_code": "keypad_7",
+          "modifiers": {
+            "optional": ["any"]
+          }
+        },
+        "to": [
+          {
+            "key_code": "home"
+          }
+        ],
+        "type": "basic"
+      },
+      {
+        "conditions": [
+          {
+            "name": "Num Lock",
+            "type": "variable_unless",
+            "value": 1
+          }
+        ],
+        "from": {
+          "key_code": "keypad_8",
+          "modifiers": {
+            "optional": ["any"]
+          }
+        },
+        "to": [
+          {
+            "key_code": "up_arrow"
+          }
+        ],
+        "type": "basic"
+      },
+      {
+        "conditions": [
+          {
+            "name": "Num Lock",
+            "type": "variable_unless",
+            "value": 1
+          }
+        ],
+        "from": {
+          "key_code": "keypad_9",
+          "modifiers": {
+            "optional": ["any"]
+          }
+        },
+        "to": [
+          {
+            "key_code": "page_up"
+          }
+        ],
+        "type": "basic"
+      },
+      {
+        "conditions": [
+          {
+            "name": "Num Lock",
+            "type": "variable_unless",
+            "value": 1
+          }
+        ],
+        "from": {
+          "key_code": "keypad_4",
+          "modifiers": {
+            "optional": ["any"]
+          }
+        },
+        "to": [
+          {
+            "key_code": "left_arrow"
+          }
+        ],
+        "type": "basic"
+      },
+      {
+        "conditions": [
+          {
+            "name": "Num Lock",
+            "type": "variable_unless",
+            "value": 1
+          }
+        ],
+        "from": {
+          "key_code": "keypad_6",
+          "modifiers": {
+            "optional": ["any"]
+          }
+        },
+        "to": [
+          {
+            "key_code": "right_arrow"
+          }
+        ],
+        "type": "basic"
+      },
+      {
+        "conditions": [
+          {
+            "name": "Num Lock",
+            "type": "variable_unless",
+            "value": 1
+          }
+        ],
+        "from": {
+          "key_code": "keypad_1",
+          "modifiers": {
+            "optional": ["any"]
+          }
+        },
+        "to": [
+          {
+            "key_code": "end"
+          }
+        ],
+        "type": "basic"
+      },
+      {
+        "conditions": [
+          {
+            "name": "Num Lock",
+            "type": "variable_unless",
+            "value": 1
+          }
+        ],
+        "from": {
+          "key_code": "keypad_2",
+          "modifiers": {
+            "optional": ["any"]
+          }
+        },
+        "to": [
+          {
+            "key_code": "down_arrow"
+          }
+        ],
+        "type": "basic"
+      },
+      {
+        "conditions": [
+          {
+            "name": "Num Lock",
+            "type": "variable_unless",
+            "value": 1
+          }
+        ],
+        "from": {
+          "key_code": "keypad_3",
+          "modifiers": {
+            "optional": ["any"]
+          }
+        },
+        "to": [
+          {
+            "key_code": "page_down"
+          }
+        ],
+        "type": "basic"
+      },
+      {
+        "conditions": [
+          {
+            "name": "Num Lock",
+            "type": "variable_unless",
+            "value": 1
+          }
+        ],
+        "from": {
+          "key_code": "keypad_period",
+          "modifiers": {
+            "mandatory": ["shift"]
+          }
+        },
+        "to": [
+          {
+            "key_code": "x",
+            "modifiers": ["command"]
+          }
+        ],
+        "type": "basic"
+      },
+      {
+        "conditions": [
+          {
+            "name": "Num Lock",
+            "type": "variable_unless",
+            "value": 1
+          }
+        ],
+        "from": {
+          "key_code": "keypad_0",
+          "modifiers": {
+            "mandatory": ["shift"]
+          }
+        },
+        "to": [
+          {
+            "key_code": "v",
+            "modifiers": ["command"]
+          }
+        ],
+        "type": "basic"
+      },
+      {
+        "conditions": [
+          {
+            "name": "Num Lock",
+            "type": "variable_unless",
+            "value": 1
+          }
+        ],
+        "from": {
+          "key_code": "keypad_0",
+          "modifiers": {
+            "mandatory": ["control"]
+          }
+        },
+        "to": [
+          {
+            "key_code": "c",
+            "modifiers": ["command"]
+          }
+        ],
+        "type": "basic"
+      },
+      {
+        "conditions": [
+          {
+            "name": "Num Lock",
+            "type": "variable_unless",
+            "value": 1
+          }
+        ],
+        "from": {
+          "key_code": "keypad_5"
+        },
+        "to": [
+          {
+            "key_code": "vk_none"
+          }
+        ],
+        "type": "basic"
+      }
+    ]
+  },
   ...createHyperSubLayers({
     // o = "Open" applications
     o: {
